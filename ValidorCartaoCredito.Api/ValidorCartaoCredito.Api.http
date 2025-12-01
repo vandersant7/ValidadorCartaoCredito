@@ -1,0 +1,6 @@
+@ValidorCartaoCredito.Api_HostAddress = http://localhost:5186
+
+GET {{ValidorCartaoCredito.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

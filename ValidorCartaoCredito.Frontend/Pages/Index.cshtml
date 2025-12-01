@@ -1,0 +1,53 @@
+﻿@page
+@model ValidorCartaoCredito.Frontend.Pages.Index
+@{
+    ViewData["Title"] = "Validador de Cartão de Crédito";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">Validador de Cartão</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Número do Cartão</label>
+                            <input type="text"
+                                   asp-for="NumeroCartao"
+                                   class="form-control form-control-lg text-center"
+                                   placeholder="4111 1111 1111 1111"
+                                   maxlength="19" />
+                            <small class="text-muted">Use números gerados no 4devs</small>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Validar Cartão
+                            </button>
+                        </div>
+                    </form>
+
+                    @if (Model.Resultado != null)
+                    {
+                        <div class="alert mt-4 @(Model.Resultado ? "alert-success" : "alert-danger")">
+                            <h4 class="alert-heading">
+                                @(Model.Resultado.Valido ? "Cartão VÁLIDO" : "Cartão INVÁLIDO")
+                            </h4>
+                            <p>
+                                <strong>Tipo:</strong> @Model.Resultado.Tipo<br />
+                                <strong>Mensagem:</strong> @Model.Resultado.Mensagem
+                            </p>
+                        </div>
+                    }
+                </div>
+
+                <div class="card-footer text-center text-muted small">
+                    Projeto didático • .NET 9 • Clean Architecture • Docker Ready
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

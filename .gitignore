@@ -1,0 +1,149 @@
+## ========================
+## .NET 8 + Visual Studio + VS Code + Rider
+## ========================
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# .NET Core
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.usertasks
+*.vspscc
+*.vssscc
+*.cache
+*.tmp
+*.temp
+
+# Visual Studio
+.vscode/
+.vs/
+*.sln.docstates
+*.suo
+*.cachefile
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.ilk/
+*.meta
+*.obj/
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb/
+*.svclog
+*.scc
+*.dbmdl
+
+# Rider
+.idea/
+*.iml
+*.iws
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+docker-compose*.yml
+*.dockerignore
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+*.nuproj
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test results
+[Tt]est[Rr]esult*/
+*.trx
+*.xml
+*.coverage
+*.coveragexml
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# StyleCop
+StyleCopReport.xml
+
+# Secrets / Config
+appsettings.*.json
+secrets.json
+*.pfx
+*.p12
+*.key
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Outros
+*.bak
+*.tmp
+*.temp
+*.cache
+*.log
+*.logs
+*.sqlite
+*.db
+
+# Rider specific
+.idea/
+
+# VS Code specific
+.history/
+
+# Ignorar tudo dentro de wwwroot que não seja essencial (opcional)
+wwwroot/lib/
+/wwwroot/css/site.css
+!wwwroot/css/site.css  # se você modificou, descomente
+
+# Ignorar pastas de publish
+[Pp]ublish/
+publish/
+
+# Ignorar tudo que for gerado pelo dotnet
+**/[Bb]in/
+**/[Oo]bj/
+**/Properties/PublishProfiles/
