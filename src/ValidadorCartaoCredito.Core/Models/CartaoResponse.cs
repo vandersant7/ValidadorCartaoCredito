@@ -1,4 +1,4 @@
-﻿namespace ValidorCartaoCredito.Core.Models;
+﻿namespace ValidadorCartaoCredito.Core.Models;
 
 public class CartaoResponse
 {

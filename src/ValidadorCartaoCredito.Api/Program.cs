@@ -1,7 +1,7 @@
 using Microsoft.OpenApi.Models;
 using ValidarCartaoCredito.Core.Services;
-using ValidorCartaoCredito.Core.Models;
-using ValidorCartaoCredito.Core.Services;
+using ValidadorCartaoCredito.Core.Models;
+using ValidadorCartaoCredito.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +31,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/", () => "API rodando com Swagger!");
 
-app.MapPost("/validar-cartao",
+app.MapPost("/api/validar-cartao",
     (CartaoRequest request, IValidarCartaoService service) =>
     {
         var resultado = service.Validar(request.NumeroCartao);

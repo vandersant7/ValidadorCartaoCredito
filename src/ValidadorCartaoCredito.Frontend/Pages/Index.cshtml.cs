@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ValidorCartaoCredito.Core.Models;
+using ValidadorCartaoCredito.Core.Models;
 
-namespace ValidadorCartaoCredito.Web.Pages;
+namespace ValidadorCartaoCredito.Frontend.Pages;
 
 public class IndexModel : PageModel
 {

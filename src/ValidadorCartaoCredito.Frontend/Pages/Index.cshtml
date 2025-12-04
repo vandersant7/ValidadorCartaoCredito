@@ -1,6 +1,7 @@
 ﻿@page
-@model ValidorCartaoCredito.Frontend.Pages.Index
+@model ValidadorCartaoCredito.Frontend.Pages.IndexModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Validador de Cartão de Crédito";
 }
 
@@ -29,9 +30,9 @@
                         </div>
                     </form>
 
-                    @if (Model.Resultado != null)
+                    @if (Model.Resultado is not null)
                     {
-                        <div class="alert mt-4 @(Model.Resultado ? "alert-success" : "alert-danger")">
+                        <div class="alert mt-4 @(Model.Resultado.Valido ? "alert-success" : "alert-danger")">
                             <h4 class="alert-heading">
                                 @(Model.Resultado.Valido ? "Cartão VÁLIDO" : "Cartão INVÁLIDO")
                             </h4>
@@ -42,12 +43,10 @@
                         </div>
                     }
                 </div>
-
                 <div class="card-footer text-center text-muted small">
                     Projeto didático • .NET 9 • Clean Architecture • Docker Ready
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>

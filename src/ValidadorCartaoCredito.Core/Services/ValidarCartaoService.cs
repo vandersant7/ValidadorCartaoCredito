@@ -1,9 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using ValidarCartaoCredito.Core.Services;
-using ValidorCartaoCredito.Core.Models;
-using ValidorCartaoCredito.Api.Validators.RegrasCartao;
+using ValidadorCartaoCredito.Core.Models;
+using ValidadorCartaoCredito.Core.Validators.RegrasCartao;
 
-namespace ValidorCartaoCredito.Core.Services;
+namespace ValidadorCartaoCredito.Core.Services;
 
 public class ValidarCartaoService : IValidarCartaoService
 {

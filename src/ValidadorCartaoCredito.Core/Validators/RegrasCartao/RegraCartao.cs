@@ -1,4 +1,4 @@
-﻿namespace ValidorCartaoCredito.Core.Validators.RegrasCartao
+﻿namespace ValidadorCartaoCredito.Core.Validators.RegrasCartao
 {
     public class RegraCartao
     {

@@ -1,4 +1,4 @@
-﻿using ValidorCartaoCredito.Core.Models;
+﻿using ValidadorCartaoCredito.Core.Models;
 
 namespace ValidarCartaoCredito.Core.Services;
 
