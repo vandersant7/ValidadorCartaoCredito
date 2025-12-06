@@ -9,10 +9,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="card shadow">
+
                 <div class="card-header bg-primary text-white text-center">
                     <h2 class="mb-0">Validador de Cartão</h2>
                 </div>
                 <div class="card-body">
+
                     <form method="post">
                         <div class="mb-4">
                             <label class="form-label fw-bold">Número do Cartão</label>
@@ -24,24 +26,42 @@
                             <small class="text-muted">Use números gerados no 4devs</small>
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                Validar Cartão
+                            <button type="submit" class="btn btn-primary btn-lg" disabled="@Model.IsProcessing">
+                                @(Model.IsProcessing ? "Validando cartão..." : "Validar cartão")
                             </button>
+
+                            @if (Model.IsProcessing)
+                            {
+                                <div class="text-center mt-3 fade show">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Validando...</span>
+                                    </div>
+                                    <p class="mt-2 text-info">Validando cartão, aguarde...</p>
+                                </div>
+                            }
+                            else if (!string.IsNullOrEmpty(Model.StatusMessage))
+                            {
+                                <div id="alertBox" class="alert mt-4 fade show @(Model.Resultado?.Valido == true ? "alert-success" : "alert-danger") alert-dismissible">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+
+                                    <h4 class="alert-heading">
+                                        @(Model.Resultado?.Valido == true ? "Cartão VÁLIDO" : "Cartão INVÁLIDO")
+                                    </h4>
+                                    <p>@Model.StatusMessage</p>
+                                </div>
+
+                                <script>
+                                setTimeout(function () {
+                                        var alertBox = document.getElementById("alertBox");
+                                        if (alertBox && alertBox.classList.contains("show")) {
+                                            alertBox.classList.remove("show");
+                                        }
+                                    }, @Model.AlertTimeout);
+                                </script>
+                            }
                         </div>
                     </form>
 
-                    @if (Model.Resultado is not null)
-                    {
-                        <div class="alert mt-4 @(Model.Resultado.Valido ? "alert-success" : "alert-danger")">
-                            <h4 class="alert-heading">
-                                @(Model.Resultado.Valido ? "Cartão VÁLIDO" : "Cartão INVÁLIDO")
-                            </h4>
-                            <p>
-                                <strong>Tipo:</strong> @Model.Resultado.Tipo<br />
-                                <strong>Mensagem:</strong> @Model.Resultado.Mensagem
-                            </p>
-                        </div>
-                    }
                 </div>
                 <div class="card-footer text-center text-muted small">
                     Projeto didático • .NET 9 • Clean Architecture • Docker Ready
