@@ -3,7 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var apiUrl = builder.Configuration["ApiBaseUrl"] ?? "http://localhost:5186";
+var apiUrl = builder.Configuration.GetValue<string>("ApiSettings:BaseUrl")
+              ?? "http://localhost:8080";
 
 builder.Services.AddHttpClient("ApiClient", client =>
 {

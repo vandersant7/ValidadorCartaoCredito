@@ -1,0 +1,23 @@
+﻿@model ValidadorCartaoCredito.Frontend.Models.AlertViewModel
+
+@if (!string.IsNullOrWhiteSpace(Model?.Message))
+{
+	var alertId = "alertBox_" + Guid.NewGuid().ToString("N");
+
+    <div id="@alertId"
+         class="alert mt-4 @Model.CssClass alert-dismissible fade show"
+         role="alert"
+         data-auto-dismiss="@Model.Timeout">
+        @if (Model.Dismissible)
+        {
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.Title))
+        {
+            <h4 class="alert-heading">@Model.Title</h4>
+        }
+
+        <p>@Model.Message</p>
+    </div>
+}

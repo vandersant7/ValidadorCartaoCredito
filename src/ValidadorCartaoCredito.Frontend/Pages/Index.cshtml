@@ -9,12 +9,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
             <div class="card shadow">
-
                 <div class="card-header bg-primary text-white text-center">
                     <h2 class="mb-0">Validador de Cartão</h2>
                 </div>
-                <div class="card-body">
 
+                <div class="card-body">
                     <form method="post">
                         <div class="mb-4">
                             <label class="form-label fw-bold">Número do Cartão</label>
@@ -25,6 +24,7 @@
                                    maxlength="19" />
                             <small class="text-muted">Use números gerados no 4devs</small>
                         </div>
+
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg" disabled="@Model.IsProcessing">
                                 @(Model.IsProcessing ? "Validando cartão..." : "Validar cartão")
@@ -41,28 +41,12 @@
                             }
                             else if (!string.IsNullOrEmpty(Model.StatusMessage))
                             {
-                                <div id="alertBox" class="alert mt-4 fade show @(Model.Resultado?.Valido == true ? "alert-success" : "alert-danger") alert-dismissible">
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-
-                                    <h4 class="alert-heading">
-                                        @(Model.Resultado?.Valido == true ? "Cartão VÁLIDO" : "Cartão INVÁLIDO")
-                                    </h4>
-                                    <p>@Model.StatusMessage</p>
-                                </div>
-
-                                <script>
-                                setTimeout(function () {
-                                        var alertBox = document.getElementById("alertBox");
-                                        if (alertBox && alertBox.classList.contains("show")) {
-                                            alertBox.classList.remove("show");
-                                        }
-                                    }, @Model.AlertTimeout);
-                                </script>
+                                <partial name="_Alert" model="Model.AlertModel" />
                             }
                         </div>
                     </form>
-
                 </div>
+
                 <div class="card-footer text-center text-muted small">
                     Projeto didático • .NET 9 • Clean Architecture • Docker Ready
                 </div>
@@ -70,3 +54,24 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Se necessário re-inicializar após postbacks dinâmicos:
+        if (window.initAutoDismissAlerts) {
+            window.initAutoDismissAlerts();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+          var form = document.querySelector('form[method="post"]');
+          if (!form) return;
+          form.addEventListener('submit', function () {
+            var btn = form.querySelector('button[type="submit"]');
+            if (btn) {
+              btn.disabled = true;
+              btn.textContent = 'Validando cartão...';
+            }
+          });
+        });
+    </script>
+}
